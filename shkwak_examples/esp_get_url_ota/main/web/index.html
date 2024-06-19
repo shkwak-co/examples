@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>OTA URL</title>
+    <style>
+        .label {
+            font-weight: bold;
+        }
+        .chip {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .input {
+            margin-right: 10px;
+        }
+        .act {
+            cursor: pointer;
+        }
+        .blue {
+            background-color: #2196F3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <span class="label">OTA URL</span>
+    <span class="chip" data-id="ota_url"></span>
+    <input class="input" name="ota_url" />
+    <button class="act chip blue" data-act="save">저장</button>
+
+    <script>
+        const responseData = {
+            "ota_url": "",
+        };
+
+        const devGatewayElement = document.querySelector('.chip[data-id="ota_url"]');
+        const devGatewayInput = document.querySelector('input[name="ota_url"]');
+        const saveButton = document.querySelector('button[data-act="save"]');
+
+        function updateValues(data) {
+            if (data.ota_url) {
+                devGatewayElement.textContent = data.ota_url;
+                devGatewayInput.value = data.ota_url;
+            }
+        }
+
+        updateValues(responseData);
+
+        saveButton.addEventListener('click', () => {
+            const otaUrl = devGatewayInput.value;
+
+            const data = {
+                "ota_url": otaUrl,
+            };
+
+            fetch('/change', { // 서버의 엔드포인트로 변경 필요
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // 성공 시 처리 로직 추가
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // 에러 시 처리 로직 추가
+            });
+        });
+    </script>
+</body>
+</html>
