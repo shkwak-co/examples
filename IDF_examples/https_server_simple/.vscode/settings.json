@@ -19,6 +19,7 @@
   "files.associations": {
     "protocol_examples_common.h": "c",
     "esp_https_server.h": "c",
-    "esp_eth.h": "c"
+    "esp_eth.h": "c",
+    "esp_tls.h": "c"
   }
 }

@@ -12,15 +12,8 @@
     "interface/ftdi/esp32_devkitj_v1.cfg",
     "target/esp32.cfg"
   ],
+  "idf.portWin": "COM4",
   "idf.pythonBinPathWin": "d:\\esp\\espressif\\python_env\\idf5.2_py3.11_env\\Scripts\\python.exe",
   "idf.toolsPathWin": "d:\\esp\\espressif",
-  "idf.flashType": "UART",
-  "idf.portWin": "COM4",
-  "files.associations": {
-    "param.h": "c",
-    "esp_tls.h": "c",
-    "esp_wifi.h": "c",
-    "cjson.h": "c",
-    "esp_https_server.h": "c"
-  }
+  "idf.flashType": "UART"
 }
