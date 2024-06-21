@@ -316,7 +316,10 @@ http_rest_with_hostname_path (void)
 
 
 
-
+/**
+ * wifi 설정
+ * 
+ */
 
 
 
